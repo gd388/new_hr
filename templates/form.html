@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example Form</title>
+    <style>
+      /* Form styling */
+      form {
+        width: 80%;
+        margin: 0 auto;
+        font-size: 18px;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      /* Error message styling */
+      .error-message {
+        color: red;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#" method="post" enctype="multipart/form-data">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="image">Image (Upload):</label>
+      <input type="file" id="image" name="image" accept="image/*" required>
+      
+      <label for="adhar">Adhar:</label>
+      <input type="text" id="adhar" name="adhar" required>
+      
+      <label for="pan">Pan Card:</label>
+      <input type="text" id="pan" name="pan" required>
+      
+      <label for="c4">C4 (Upload):</label>
+      <input type="file" id="c4" name="c4" accept="image/*,application/pdf" required>
+      
+      <label for="health-declaration">Health Declaration:</label>
+      <input type="text" id="health-declaration" name="health-declaration" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <span class="error-message" id="email-error"></span>
+      
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" required>
+      
+      <label for="bank-details">Bank Details:</label>
+      <input type="text" id="bank-details" name="bank-details" required>
+      
+      <input type="submit" value="Submit">
+    </form>
+
+    <script>
+      // Email validation script
+      const emailInput = document.getElementById("email");
+      const emailError = document.getElementById("email-error");
+
+      emailInput.addEventListener("input", function(event) {
+        if (emailInput.validity.valid) {
+          emailError.textContent = "";
+        } else {
+          emailError.textContent = "Please enter a valid email address.";
+        }
+      });
+    </script>
+  </body>
+</html>
